@@ -1,12 +1,12 @@
-<<<<<<< HEAD
-```
+
+
  █████╗  ██████╗ ██████╗ ██╗███████╗██╗  ██╗██╗███████╗██████╗     █████╗ ██╗
 ██╔══██╗██╔════╝ ██╔══██╗██║██╔════╝██║  ██║██║██╔════╝██╔══██╗   ██╔══██╗██║
 ███████║██║  ███╗██████╔╝██║███████╗███████║██║█████╗  ██║  ██║   ███████║██║
 ██╔══██║██║   ██║██╔══██╗██║╚════██║██╔══██║██║██╔══╝  ██║  ██║   ██╔══██║██║
 ██║  ██║╚██████╔╝██║  ██║██║███████║██║  ██║██║███████╗██████╔╝██╗██║  ██║██║
 ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝
-```
+
 
 ## Next-Generation Intelligent Agriculture System
 Predictive Analytics · Multi-Modal AI · Real-time Diagnostis
@@ -15,7 +15,7 @@ AgriShield AI is an enterprise-grade, AI-powered agricultural management system 
 
 [🚀 Quick Start](#-quick-start) · [🎯 Features](#-key-features) · [🏗️ Architecture](#%EF%B8%8F-system-architecture) · [🧠 Intelligence Pipeline](#-the-intelligence-pipeline)
 
----
+
 
 ## 📑 Table of Contents
 1. [🎯 Key Features](#-key-features)
@@ -25,7 +25,7 @@ AgriShield AI is an enterprise-grade, AI-powered agricultural management system 
 5. [🚀 Quick Start (Docker Deployment)](#-quick-start)
 6. [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)
 
----
+
 
 ## 🎯 Key Features
 
