@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: agrishield-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - agrishield-network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agrishield-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/crop_recommendation
+      - JWT_SECRET=your_super_secret_jwt_key_123
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    depends_on:
+      - mongodb
+    networks:
+      - agrishield-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agrishield-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - agrishield-network
+    restart: unless-stopped
+
+networks:
+  agrishield-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
