@@ -153,7 +153,7 @@ This project is fully containerized for seamless deployment across local environ
    *   Backend API: `http://localhost:5000`
    *   MongoDB instance is securely bound to the Docker bridge network.
 
----
+
 
 ## 🛠️ Tech Stack
 
@@ -163,6 +163,5 @@ This project is fully containerized for seamless deployment across local environ
 *   **Database:** MongoDB / Mongoose ODM.
 *   **LLM API:** Google Gemini 1.5 Flash API / OpenAI GPT-4o-mini API.
 *   **DevOps:** Docker, Docker Compose, Nginx.
-=======
-# AGRISHIELD-AI
->>>>>>> f147d5a1baba8d52a7986ff637d999bd08c031f9
+   AGRISHIELD-AI
+
