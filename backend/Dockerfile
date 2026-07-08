@@ -1,20 +1,20 @@
 FROM node:18-alpine
 
-# Install Python and dependencies for ML scripts
-RUN apk add --no-cache python3 py3-pip build-base g++
-
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Copy package files and install production dependencies only
 COPY package*.json ./
-RUN npm install
+RUN npm ci --omit=dev
 
 # Copy backend source code
 COPY . .
 
-# Expose port
+# Create uploads directory
+RUN mkdir -p uploads
+
+# Expose backend port
 EXPOSE 5000
 
-# Start server
+# Start server using the "start" npm script (node server.js)
 CMD ["npm", "start"]

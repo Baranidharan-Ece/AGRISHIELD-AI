@@ -55,7 +55,7 @@ router.post("/signup", async (req, res) => {
       return res.status(201).json({ message: "User created successfully (In-Memory)" });
     }
   } catch (err) {
-    res.status(450 || 400).json({ error: err.message });
+    res.status(400).json({ error: err.message });
   }
 });
 

@@ -1,0 +1,48 @@
+# render.yaml — Render Infrastructure-as-Code configuration
+# Commit this file to your repository root.
+# Render will automatically detect and use it.
+#
+# IMPORTANT: Secret values (MONGO_URI, JWT_SECRET, etc.) should be set
+# manually in the Render dashboard → each service → Environment, NOT here.
+
+services:
+  # ─── Backend (Node.js / Express) ────────────────────────────────────────────
+  - type: web
+    name: backend-service
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false   # Set this manually in the Render dashboard (MongoDB Atlas URI)
+      - key: JWT_SECRET
+        sync: false   # Set this manually in the Render dashboard
+      - key: FRONTEND_URL
+        value: https://agrishield-frontend-ik97.onrender.com
+      - key: OPENAI_API_KEY
+        value: mock-openai-key
+      - key: OPENWEATHER_API_KEY
+        value: mock-weather-key
+
+  # ─── Frontend (React / Vite → Static Site) ──────────────────────────────────
+  - type: web
+    name: agrishield-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    plan: free
+    routes:
+      # SPA fallback: all routes serve index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        value: https://backend-service-nevs.onrender.com/api
